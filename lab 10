@@ -1,0 +1,23 @@
+# Exercise 1: Conditional Arithmetic Operations
+
+# Step 1: Initialize t0 and t1 with predefined values
+addi t0, x0, 10     # t0 = 10
+addi t1, x0, 10     # t1 = 10 (You can change one to a different value to test both branches)
+
+# Step 2: Compare t0 and t1
+beq t0, t1, equal_case   # If t0 == t1, jump to equal_case
+# Step 3: If t0 != t1, subtract 4 from t1
+addi t1, t1, -4          # t1 = t1 - 4
+# Step 4: Store the result in t3 since t1 was modified
+addi t3, t1, 0           # t3 = t1
+j end_if                # Jump to end to skip the equal_case
+
+# Step 2 Continued: t0 == t1 case
+equal_case:
+addi t0, t0, 4           # t0 = t0 + 4
+# Step 4: Store the result in t2 since t0 was modified
+addi t2, t0, 0           # t2 = t0
+
+end_if:
+# Program ends here (can add break or exit for simulators if needed)
+
